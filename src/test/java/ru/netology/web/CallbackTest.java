@@ -40,8 +40,8 @@ class OrderSeleniumTest {
 
     @Test
     void testOrderSuccess() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Петров-Кошкин Геннадий");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+74955587421");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Иванов");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79012345678");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.tagName("button")).click();
         String actualText = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
@@ -59,8 +59,8 @@ class OrderSeleniumTest {
 
     @Test
     void testNameInvalid() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Петров-Кошкин Геннадий1");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+74955587421");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван4 Иванов");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79012345678");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.tagName("button")).click();
         String actualText = driver.findElement(By.cssSelector("[data-test-id=name].input_invalid .input__sub")).getText().trim();
@@ -70,7 +70,7 @@ class OrderSeleniumTest {
 
     @Test
     void testNameNull() {
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+74955587421");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79012345678");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.tagName("button")).click();
         String actualText = driver.findElement(By.cssSelector("[data-test-id=name].input_invalid .input__sub")).getText().trim();
@@ -80,8 +80,8 @@ class OrderSeleniumTest {
 
     @Test
     void testPhoneInvalid() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Петров-Кошкин Геннадий");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+749555874210");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Иванов");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+790123456789");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.tagName("button")).click();
         String actualText = driver.findElement(By.cssSelector("[data-test-id=phone].input_invalid .input__sub")).getText().trim();
@@ -91,7 +91,7 @@ class OrderSeleniumTest {
 
     @Test
     void testPhoneNull() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Петров-Кошкин Геннадий");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Иванов");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.tagName("button")).click();
         String actualText = driver.findElement(By.cssSelector("[data-test-id=phone].input_invalid .input__sub")).getText().trim();
@@ -101,8 +101,8 @@ class OrderSeleniumTest {
 
     @Test
     void testCheckboxInvalid() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Петров-Кошкин Геннадий");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+74955587421");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Иванов");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79012345678");
         driver.findElement(By.tagName("button")).click();
         boolean actualText = driver.findElement(By.cssSelector("[data-test-id=agreement].input_invalid")).isDisplayed();
         boolean expected = true;
@@ -111,8 +111,8 @@ class OrderSeleniumTest {
 
     @Test
     void testAllInvalidCheckboxChecked() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Петров-Кошкин Геннадий1");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+749555874210");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван1 Иванов");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+790123456789");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.tagName("button")).click();
         String actualText = driver.findElement(By.cssSelector("[data-test-id=name].input_invalid .input__sub")).getText().trim();
@@ -122,8 +122,8 @@ class OrderSeleniumTest {
 
     @Test
     void testAllInvalidCheckboxUnchecked() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Петров-Кошкин Геннадий1");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+749555874210");
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иван Иванов1");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+790123456789");
         driver.findElement(By.tagName("button")).click();
         String actualText = driver.findElement(By.cssSelector("[data-test-id=name].input_invalid .input__sub")).getText().trim();
         String expected = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
