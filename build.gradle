@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.netology'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+    testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.5'
+    testImplementation('io.github.bonigarcia:webdrivermanager:5.2.0')
+}
+test {
+    useJUnitPlatform()
+    }
